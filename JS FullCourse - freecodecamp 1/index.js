@@ -41,4 +41,7 @@ let humanDogRatio = 7
 myDogAge = myAge * humanDogRatio
 console.log(myDogAge)
 
+let texto1 = "Hello World"
+let texto2 = "Bye World"
 
+let concatenado = texto1 + texto2
