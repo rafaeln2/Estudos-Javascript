@@ -1,12 +1,14 @@
+
+
 // document = o documento atual(html)
 // document.getElementById("count-el").innerText = 6
 
 function save(){
     let count = document.getElementById("count-el").innerText
-    let save = document.getElementById("save-el")
+    let save_number = document.getElementById("save-el")
 
     // starts without dash    
-    save.innerText === "" ? save.innerText = count : save.innerText += " - " + count
+    save_number.innerText === "" ? save_number.innerText = count : save_number.innerText += " - " + count
     console.log(count)    
 }
 

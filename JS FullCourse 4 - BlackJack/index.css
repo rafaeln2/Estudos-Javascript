@@ -10,6 +10,10 @@ body {
     text-align: center;
 }
 
+.container_multiple_items_in_row{
+    display: flex; justify-content: center;
+}
+
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
