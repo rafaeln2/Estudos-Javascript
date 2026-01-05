@@ -1,0 +1,52 @@
+body {
+    /* background-color: rgb(160, 7, 7); */
+
+    /* background:linear-gradient(to left, skyblue,lightgreen);
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+
+    background-image: url('image.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
+h1 {
+    color: white;
+    font-family: "press Start 2P", "consolas";
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    border-left-style:double;
+
+    border-left-width:10px;
+    border-left-color: silver;
+
+    background:linear-gradient(to right, red,yellow);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+p {
+    background: gray;
+    color: white;
+    font-family: "consolas", sans-serif;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: gold;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+/* #p1-el {
+    color: blue;
+} */
+
+.odd {
+    color: yellow;
+}
+
+.even {
+    color: green
+}
