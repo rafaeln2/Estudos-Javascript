@@ -1,0 +1,41 @@
+h1 {
+    color: goldenrod;
+}
+
+body {
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    background-image: url(istockphoto-905486620-612x612.jpg);    
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-weight: bold;
+}
+
+.positive-text {
+    color: green;    
+}
+
+.negative-text {
+    color: red;
+}
+
+button {
+    margin-bottom: 2px
+    margin-top: 2px;
+}
+
+.game-btn {
+    color: #016f32;
+    background: goldenrod;
+    width: 150px;    
+    border-radius: 5px;
+    /* margin: auto; */
+    padding: 10px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+.game-btn:hover {
+    background-color: black;
+}
