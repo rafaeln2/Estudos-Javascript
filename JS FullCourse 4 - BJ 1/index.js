@@ -1,15 +1,30 @@
-let firstCard = 1;
-let secondCard = 6;
+let firstCard;
+let secondCard;
+let iAlive = false;
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
-let iAlive = true;
 let message="";
 let messageEl = document.querySelector("#message-el")
 let sumEl = document.querySelector("#sum-el")
 let cardsEl = document.querySelector("#cards-el")
-let cards = [firstCard, secondCard];
+let cards;
+
+let playerEl = document.querySelector("#player-el");
+let player = {
+    name: "Rafa",
+    chips: 145,
+    sayHello: function(){
+        console.log("Olá!");
+    }
+}
+playerEl.textContent = player.name + ": $" + player.chips;
 
 function startGame(){
+    isAlive = true;
+    firstCard = getRandomCard();
+    secondCard = getRandomCard();    
+    cards = [firstCard, secondCard];
+    sum = cards.reduce((a, b) => a + b);
     renderGame();
 }
 
@@ -28,14 +43,26 @@ function renderGame(){
     cardsEl.textContent = "Cards: " + cards.join(", ");
 }
 
-function hit(){
-    let card = 6
-    cards.push(card);
-    
-    sum += card;
-    renderGame();
-    console.log("hit");
+function newCard(){
+    if (!hasBlackJack && isAlive){
+        let card = getRandomCard();
+        cards.push(card);    
+        sum += card;
+        renderGame();
+        console.log("hit");
+    }    
+}
+
+function getRandomCard(){
+    let card = Math.floor( Math.random()*13 ) + 1;
+    if (card === 1){
+        return 11;
+    } else if (card > 10){
+        return 10;
+    } else{
+        return card;
+    }
 }
 
 document.querySelector('#start-game-btn').addEventListener('click', startGame);
-document.querySelector('#new-card-btn').addEventListener('click', hit); 
+document.querySelector('#new-card-btn').addEventListener('click', newCard); 
