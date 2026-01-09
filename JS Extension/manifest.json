@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Leads tracker",
+    "version": "1.0.0",
+    "description": "A useful Chrome extension",
+    "permissions": [],
+    "action": {
+        "default_title": "index.html",
+        "action": "index.html"
+        // "default_popup": "popup.html"
+    }
+    // "background": {
+    //     "service_worker": "background.js"
+    // }
+}
