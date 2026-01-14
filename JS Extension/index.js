@@ -1,8 +1,11 @@
 const inputButtonEl = document.querySelector("#input-btn");
+const deleteButtonEl = document.querySelector("#delete-btn");
 const inputEl = document.querySelector("#input-el");
-const myLeads = ["lead1.com", "lead2.com", "lead3.com"];
 const ulEl = document.querySelector("#ul-el");
-console.log(ulEl);
+
+document.addEventListener("DOMContentLoaded", () => {
+    render(JSON.parse(localStorage.getItem("myLeads")) || []);
+});
 
 inputButtonEl.addEventListener("click", () => {
     let input = inputEl.value;
@@ -10,14 +13,22 @@ inputButtonEl.addEventListener("click", () => {
     if (input.startsWith("http://") === false && input.startsWith("https://") === false) {
         input = "http://" + input;
     }
-    myLeads.push(input);
-    renderLeads();
+    myLeadsLS = JSON.parse(localStorage.getItem("myLeads")) || [];    
+    myLeadsLS.push(input);
+    localStorage.setItem("myLeads", JSON.stringify(myLeadsLS));    
+    render(JSON.parse(localStorage.getItem("myLeads")) || []);
 });
 
-function renderLeads(){
+deleteButtonEl.addEventListener("dblclick", () => {
+    localStorage.removeItem("myLeads");
+    render(JSON.parse(localStorage.getItem("myLeads")) || []);
+});
+
+function render(renderableList){
     let listItems = "";    
-    myLeads.forEach(element => {
-        
+    ;    
+    
+    renderableList.forEach(element => {        
         listItems += `
         <li>
             <a href='${element}' target='_blank'>${element}</a>
@@ -28,6 +39,6 @@ function renderLeads(){
         // li.textContent = element;
         // ulEl.appendChild(li);
     });
-    ulEl.innerHTML = listItems;
+    ulEl.innerHTML = listItems;    
     inputEl.value = "";
 }

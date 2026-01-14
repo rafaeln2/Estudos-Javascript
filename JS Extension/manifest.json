@@ -6,8 +6,8 @@
     "permissions": [],
     "action": {
         "default_title": "index.html",
-        "action": "index.html"
-        // "default_popup": "popup.html"
+        "action": "index.html",
+        "default_popup": "index.html"
     }
     // "background": {
     //     "service_worker": "background.js"
