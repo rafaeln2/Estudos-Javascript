@@ -2,10 +2,23 @@ const inputButtonEl = document.querySelector("#input-btn");
 const deleteButtonEl = document.querySelector("#delete-btn");
 const inputEl = document.querySelector("#input-el");
 const ulEl = document.querySelector("#ul-el");
+const tabEl = document.querySelector("#tab-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
     render(JSON.parse(localStorage.getItem("myLeads")) || []);
 });
+
+// gets current website link and saves to local storage
+tabEl.addEventListener("click", async () => {
+    const leads = JSON.parse(localStorage.getItem("myLeads")) || [];
+
+    const [currentURL] = await chrome.tabs.query({
+        active:true, currentWindow: true
+    })
+    leads.push(currentURL.url);
+    localStorage.setItem("myLeads", JSON.stringify(leads));
+    render(leads);
+})
 
 inputButtonEl.addEventListener("click", () => {
     let input = inputEl.value;
