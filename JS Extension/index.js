@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 tabEl.addEventListener("click", async () => {
     const leads = JSON.parse(localStorage.getItem("myLeads")) || [];
 
-    const [currentURL] = await chrome.tabs.query({
+    const [currentTab] = await chrome.tabs.query({
         active:true, currentWindow: true
     })
-    leads.push(currentURL.url);
+    leads.push(currentTab.url);
     localStorage.setItem("myLeads", JSON.stringify(leads));
     render(leads);
 })
@@ -52,6 +52,7 @@ function render(renderableList){
         // li.textContent = element;
         // ulEl.appendChild(li);
     });
+
     ulEl.innerHTML = listItems;    
     inputEl.value = "";
 }
